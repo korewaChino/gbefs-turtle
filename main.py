@@ -44,7 +44,7 @@ def determine_direction(turtle):
 DIRECTION: Optional[grid.Direction] = None
 
 # Destination to reach
-DEST = (9, -18)
+DEST = (9, 15)
 
 # can be x or y
 COORD_PRIORITY = "" # this will be used to determine the priority of the coordinates
@@ -187,6 +187,10 @@ def main():
 
     print("Taxiing the turtle to the destination")
     taxi(t)
+    import turtle as pytur
+    pytur.mainloop()
+
+
 
     
 

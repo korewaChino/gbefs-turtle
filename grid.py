@@ -3,7 +3,10 @@
 from enum import Enum
 from time import sleep
 
+import turtle as pytur
+
 WAIT_TIME = 0.1
+
 
 # A 2D grid class
 # This class is used to represent a 2D grid
@@ -35,16 +38,24 @@ class Turtle:
         self.direction = Direction.NORTH
         self.grid = grid
 
+        self.graphic_turtle = pytur.Turtle()
+        self.graphic_turtle.speed(0)
+
+        # keep turtle on and never close
+        
+
     # Turn left
     def turn_left(self):
         print("Turning left")
         self.direction = Direction((self.direction.value - 1) % 4)
+        self.graphic_turtle.left(90)
         sleep(WAIT_TIME)
 
     # Turn right
     def turn_right(self):
         print("Turning right")
         self.direction = Direction((self.direction.value + 1) % 4)
+        self.graphic_turtle.right(90)
         sleep(WAIT_TIME)
 
     # Get current position
@@ -62,7 +73,9 @@ class Turtle:
             self.grid.y -= 1
         elif self.direction == Direction.WEST:
             self.grid.x -= 1
-        
+
+        self.graphic_turtle.forward(20)
+
         sleep(WAIT_TIME)
 
 
